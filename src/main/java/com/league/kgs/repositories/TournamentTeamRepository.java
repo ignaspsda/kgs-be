@@ -6,7 +6,9 @@ import com.league.kgs.entity.Tournament;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface TournamentTeamRepository extends CrudRepository<TournamentTeams, Long> {
 
     @Query("SELECT CASE WHEN COUNT(tt) > 0 THEN true ELSE false END FROM TournamentTeams tt WHERE tt.team = :team AND tt.tournament = :tournament")
